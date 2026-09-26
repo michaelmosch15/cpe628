@@ -1,4 +1,4 @@
-# CPE 628 - HW1: Testing TensorFlow and PyTorch in Colab
+# CPE 628 - HW1: Testing TensorFlow and PyTorch
 
 For this homework I ran the given TensorFlow code and the equivalent PyTorch code on two tasks: linear regression on California Housing and digit classification on MNIST. After getting the given code working I changed some hyperparameters to see what actually makes a difference. Screenshots are in the `screenshots/` folder.
 
@@ -151,23 +151,26 @@ Where it messes up: 176 wrong out of 10,000 in TF. The biggest ones in the confu
 
 ## Conclusion
 
-Both frameworks worked in Colab and gave almost the same results: about 0.55 test MSE for linear regression on California Housing and about 98.2% test accuracy on MNIST. For housing, the linear model is just too simple for the data, and a small neural net did way better (0.29 MSE). For MNIST, the given settings (Adam 1e-3, dropout 0.2) were already close to the best I found. The main improvement was stopping around epoch 7-10 instead of 15 since the extra epochs just start overfitting. To go much higher than ~98.3% you'd probably need a CNN, because the MLP flattens the image and loses the 2D structure.
+I ran both notebooks locally in Jupyter (VS Code, CPU only) and both frameworks gave almost the same results: about 0.55 test MSE for linear regression on California Housing and about 98.2% test accuracy on MNIST. For housing, the linear model is just too simple for the data, and a small neural net did way better (0.29 MSE). For MNIST, the given settings (Adam 1e-3, dropout 0.2) were already close to the best I found. The main improvement was stopping around epoch 7-10 instead of 15 since the extra epochs just start overfitting. To go much higher than ~98.3% you'd probably need a CNN, because the MLP flattens the image and loses the 2D structure.
 
 If I had to pick one, Keras is easier for getting something working fast, and PyTorch is better when you want control over the training loop or want to understand what's going on.
 
 ## Screenshots
 
-1. `tf_01_setup_linear.png` - TF version output and the linear model training log + test MSE
-2. `tf_02_housing_loss.png` - housing loss curve
-3. `tf_03_weights.png` - learned weights bar chart + predicted vs actual plot
-4. `tf_04_lr_batch.png` - learning rate sweep plot/table and batch size table
-5. `tf_05_linear_vs_mlp.png` - linear vs MLP comparison
-6. `tf_06_mnist_train.png` - MNIST sample digits and the 15-epoch training log
-7. `tf_07_mnist_curves.png` - accuracy/loss curves + test accuracy
-8. `tf_08_confusion.png` - confusion matrix and misclassified digits
-9. `tf_09_mnist_tuning.png` - tuning table + val accuracy/loss plots + dropout plot
-10. `tf_10_early_stopping.png` - early stopping output
-11. `pt_01_linear.png` - PyTorch device check, training log + test MSE, loss curve
-12. `pt_02_ols_and_lr.png` - sklearn comparison table + optimizer/lr sweep
-13. `pt_03_mnist.png` - PyTorch MNIST epoch log + curves
-14. `pt_04_mnist_tuning.png` - PyTorch tuning table + plots
+TensorFlow - linear regression (test MSE + loss curve)
+![TF linear regression](screenshots/01_tf_linear_regression.png)
+
+TensorFlow - MNIST (training log, test accuracy, curves)
+![TF MNIST](screenshots/02_tf_mnist.png)
+
+TensorFlow - tuning (learning rate sweep and MNIST configs)
+![TF tuning](screenshots/03_tf_tuning.png)
+
+PyTorch - linear regression
+![PyTorch linear regression](screenshots/04_pytorch_linear_regression.png)
+
+PyTorch - MNIST
+![PyTorch MNIST](screenshots/05_pytorch_mnist.png)
+
+PyTorch - tuning
+![PyTorch tuning](screenshots/06_pytorch_tuning.png)
